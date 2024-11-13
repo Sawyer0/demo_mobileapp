@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
 
-export const StyledText = ({ children, ...props }) => {
-  return <Text {...props}>{children}</Text>;
+export const StyledText = ({ children }) => {
+  return <Text>{children}</Text>;
 };
