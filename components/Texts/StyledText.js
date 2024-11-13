@@ -1,7 +1,5 @@
-import { Text } from "@react-native";
+import { Text } from 'react-native';
 
-const StyledText = ({ children }) => {
-  return <Text>{children}</Text>;
+export const StyledText = ({ children, ...props }) => {
+  return <Text {...props}>{children}</Text>;
 };
-
-export default StyledText;
