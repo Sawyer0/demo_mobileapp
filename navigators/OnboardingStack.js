@@ -10,7 +10,7 @@ const OnBoardingStack = () => {
     <Stack.Navigator
       screenOptions={{
         headerTitleAlign: "center",
-        headerTintColore: "colors.tint",
+        headerTintColor: colors.tint,
         headerRight: () => (
           <StyledButton
             style={{

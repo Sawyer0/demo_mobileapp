@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import { onboardingData } from "../config/data";
 import { colors } from "../config/theme";
@@ -6,9 +6,11 @@ import { StyledText, StyledButton } from "../components";
 import { ScreenWidth } from "../config/constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { HeaderHeightContext } from "@react-navigation/elements";
+import { useNavigation } from "@react-navigation/native";
 
-const Welcome = () => {
-  const activeScreen = 1;
+const Welcome = ({ route }) => {
+  const navigation = useNavigation();
+  const [activeScreen] = useState(route.params?.activeScreen || 1);
   return (
     <View style={styles.container}>
       <Image
@@ -32,7 +34,7 @@ const Welcome = () => {
       </View>
 
       <View style={styles.bottomContent}>
-        <View style={styles.pageIndicator}>
+        <View style={styles.pageIndicators}>
           {onboardingData.map((item) => {
             if (item.id === activeScreen) {
               return (
@@ -46,7 +48,7 @@ const Welcome = () => {
             }
             return (
               <MaterialCommunityIcons
-                name="checkbox-marked-circle-plus-outline"
+                name="checkbox-blank-circle-outline"
                 size={15}
                 color={colors.tertiary + "33"}
                 key={item.id}
@@ -55,7 +57,14 @@ const Welcome = () => {
           })}
         </View>
 
-        <StyledButton icon="arrowright">Next</StyledButton>
+        <StyledButton
+          icon="arrowright"
+          onPress={() => {
+            navigation.push("Welcome", { activeScreen: activeScreen + 1 });
+          }}
+        >
+          Next
+        </StyledButton>
       </View>
     </View>
   );
@@ -92,14 +101,14 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   description: {
-    color: colors.tertiary,
     textAlign: "center",
+    color: colors.tertiary,
   },
   bottomContent: {
     alignItems: "center",
     marginBottom: 25,
   },
-  pageIndicator: {
+  pageIndicators: {
     flexDirection: "row",
     marginBottom: 15,
   },
