@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import { onboardingData } from "../config/data";
 import { colors } from "../config/theme";
 import { StyledText, StyledButton } from "../components";
 import { ScreenWidth } from "../config/constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { HeaderHeightContext } from "@react-navigation/elements";
 
 const Welcome = () => {
   const activeScreen = 1;
@@ -13,7 +15,7 @@ const Welcome = () => {
         source={onboardingData[activeScreen - 1].image}
         style={styles.backgroundImage}
       />
-      <View>
+      <View style={{ marginTop: useContext(HeaderHeightContext) }}>
         <View style={styles.imageContainer}>
           <Image
             source={onboardingData[activeScreen - 1].image}

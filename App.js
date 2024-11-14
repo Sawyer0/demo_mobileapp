@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { Home, Welcome } from "./screens";
 import * as SplashScreen from "expo-splash-screen";
+import OnboardingStack from "./navigators/OnboardingStack";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -21,7 +22,7 @@ export default function App() {
   }, []);
   return (
     <NavigationContainer>
-      <Welcome />
+      <OnboardingStack />
       <StatusBar style="auto" />
     </NavigationContainer>
   );
