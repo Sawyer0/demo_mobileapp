@@ -1,24 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { Home } from "./screens";
 
-import { StyledText, StyledButton, StyledTextInput } from "./components";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StyledText big>WINE DOWN</StyledText>
-      <StyledButton icon="arrowright">CHECKOUT</StyledButton>
-      <StyledTextInput placeholder="Start typing..." icon="search1" />
+    <NavigationContainer>
+      <Home/>
       <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
