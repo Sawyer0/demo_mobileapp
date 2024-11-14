@@ -1,4 +1,5 @@
-import { StyledText } from "./Texts/StyledText";
+import StyledText from "./Texts/StyledText";
+import StyledButton from "./Buttons/StyledButton";
 
-export { StyledText };
+export { StyledText, StyledButton };
     

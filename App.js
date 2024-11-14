@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-import {StyledText} from './components'
+import {StyledText, StyledButton} from './components'
+
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <StyledText>WINE DOWN</StyledText>
+      <StyledText big>WINE DOWN</StyledText>
+      <StyledButton icon="arrowright">
+        CHECKOUT
+      </StyledButton>
       <StatusBar style="auto" />
     </View>
   );
