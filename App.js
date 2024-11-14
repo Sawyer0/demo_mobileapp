@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
-import { Home } from "./screens";
+import { Home, Welcome } from "./screens";
 import * as SplashScreen from "expo-splash-screen";
 
 SplashScreen.preventAutoHideAsync();
@@ -21,7 +21,7 @@ export default function App() {
   }, []);
   return (
     <NavigationContainer>
-      <Home />
+      <Welcome />
       <StatusBar style="auto" />
     </NavigationContainer>
   );
